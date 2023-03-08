@@ -8,6 +8,7 @@
  import Heading from "./heading";
  import Password from "./password";
 
+ 
  function App() {
    return (
      <div  className="form" > 
@@ -15,11 +16,9 @@
  <Phone  />
  <Password />
  <Submit btnText="submit"/>
-    
      </div>
   );
 }
-
  export default App;
 
 
