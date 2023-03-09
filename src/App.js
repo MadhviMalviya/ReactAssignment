@@ -8,8 +8,6 @@
  import Heading from "./heading";
  import Password from "./password";
 
- 
- 
  function App() {
    return (
      <div  className="form" > 
