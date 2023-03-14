@@ -1,23 +1,47 @@
 import logo from './logo.svg';
 import './App.css';
+import TodoWrapper from './components/todoWrapper';
+import TodoForm from './components/todoForm';
+import { useState } from 'react';
+import Todo from './components/todo';
 
 function App() {
+
+  const [value, setValue] = useState('')
+  const [item, setItem] = useState([])
+
+
+  function handleChange(e) {
+    const newTask = e.target.value
+    setValue(newTask)
+  }
+
+  function list() {
+    setItem((olditems) => {
+      return [...olditems, value]
+
+    })
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <h1>TASK TO-DO  </h1>
+
+      <input type={'text'} onChange={handleChange}></input>
+
+      <button type='submit' onClick={list}>Add</button>
+
+      <ul>
+        {item.map((val) => {
+          return <li>{val}
+          </li>
+
+        }
+        )}
+      </ul>
+
+
     </div>
   );
 }
